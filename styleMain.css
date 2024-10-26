@@ -1,0 +1,258 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f9fc;
+  color: #333;
+}
+
+.container {
+  width: 100%;
+  max-width: 1800px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+header {
+  background: #003366;
+  color: #fff;
+  padding: 20px 40px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.menu-toggle {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  font-size: 30px;
+  color: #fff;
+  cursor: pointer;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  margin: 10px 0;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  display: block;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+  background-color: #00509e;
+}
+
+main {
+  padding: 20px;
+  transition: margin-left 0.3s ease;
+}
+
+nav.active + main {
+  margin-left: 250px;
+}
+
+#nav-cart {
+  position: fixed;
+  right: -300px;
+  top: 0;
+  width: 300px;
+  height: 100%;
+  background-color: #fff;
+  transition: right 0.3s ease;
+  z-index: 1000;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+#nav-cart.active {
+  right: 0;
+}
+
+img {
+  cursor: pointer;
+  z-index: 999;
+  border-radius: 8px;
+  margin-bottom: 5px;
+}
+
+.cart {
+  position: absolute;
+  right: 20px;
+  top: 60px;
+  width: 300px;
+  background: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  padding: 20px;
+}
+
+.cart.hidden {
+  display: none;
+}
+
+.cart.active {
+  display: block;
+}
+
+.cart-icon {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  cursor: pointer;
+  z-index: 2000;
+}
+
+.cart-icon img {
+  width: 40px;
+  height: 40px;
+}
+
+.menu-item {
+  text-align: center;
+}
+
+.menu-item p {
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #003366;
+}
+
+#nav-menu {
+  position: fixed;
+  left: -250px;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  background: #003366;
+  color: #fff;
+  transition: left 0.3s ease;
+  z-index: 999;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+#nav-menu.active {
+  left: 0;
+}
+
+#cart {
+  position: absolute;
+  right: -300px;
+  top: 0;
+  width: 300px;
+  height: 100%;
+  background-color: #fff;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  z-index: 1000;
+  transition: right 0.3s ease;
+  display: block;
+  padding: 20px;
+}
+
+#cart.active {
+  right: 0;
+}
+
+#cash-details.hidden {
+  display: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.active {
+  display: block;
+}
+.hidden {
+  display: none;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+}
+
+.popup.active {
+  display: block;
+}
+/* Modal styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+td {
+  padding: 10px;
+  text-align: center;
+}
+#menuModal .modal-content {
+  text-align: center;
+}
+
+#menuImage {
+  width: 100%; /* ขนาดภาพจะปรับตามขนาดของ container */
+  max-width: 300px; /* กำหนดขนาดกว้างสุดไม่ให้เกิน 300px */
+  height: auto; /* รักษาอัตราส่วนของภาพ */
+  max-height: 300px; /* กำหนดขนาดสูงสุดไม่ให้เกิน 300px */
+  object-fit: cover; /* ครอบภาพให้พอดีกับกรอบ */
+  border-radius: 10px; /* ขอบมน */
+  cursor: pointer; /* เปลี่ยนเคอร์เซอร์เมื่อ hover เพื่อบ่งบอกว่าคลิกได้ */
+}
