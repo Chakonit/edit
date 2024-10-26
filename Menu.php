@@ -28,6 +28,13 @@ if ($shop_id > 0) {
 
 $save_success = isset($_SESSION['save_success']) ? $_SESSION['save_success'] : false;
 unset($_SESSION['save_success']); // เคลียร์ค่าเพื่อไม่ให้แสดงแจ้งเตือนซ้ำ
+
+// ดึงข้อมูลโลโก้จากฐานข้อมูล
+$query = "SELECT logo FROM information WHERE shop_id = $shop_id";
+$result = mysqli_query($connect, $query);
+$shop_data = mysqli_fetch_assoc($result);
+$shop_logo = $shop_data['logo'] ?? ''; // เอาโลโก้ที่ได้หรือเป็นค่าว่าง
+
 ?>
 
 <!DOCTYPE html>
@@ -49,7 +56,14 @@ unset($_SESSION['save_success']); // เคลียร์ค่าเพื่�
     <div class="container mt-5">
         <div class="card shadow">
             <div class="card-body">
-                <h1 class="text-center mb-4">โลโก้ร้าน</h1>
+                
+                <div class="text-center mb-4">
+                    <?php if (!empty($shop_logo)): ?>
+                        <img src="<?php echo htmlspecialchars($shop_logo); ?>" alt="Logo" class="img-fluid" style="max-width: 150px; max-height: 150px;"> <!-- แสดงภาพ -->
+                    <?php else: ?>
+                        <p>ไม่มีภาพที่ร้านค้าได้ใส่</p>
+                    <?php endif; ?>
+                </div>
                 <h2 class="text-center mb-4">เมนูอาหาร</h2>
                 <h3 class="text-center mb-4">รายการอาหาร</h3>
 
